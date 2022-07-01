@@ -31,7 +31,7 @@ button {
 body {
   font-family: "Nunito Sans", system-ui;
   background-color: #f6f9fe;
-  width: min(100% - 1.5rem, 1000px);
+  width: min(100% - 2rem, 1000px);
   margin-inline: auto;
 }
 header {
