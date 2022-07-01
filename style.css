@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+:root {
+  --primary: hsl(255, 43%, 28%);
+  --secondary: #4c4c4c;
+  --accent: #c6bddf;
+  --hover-bg: hsl(255, 43%, 40%);
+}
+button {
+  cursor: pointer;
+  border: none;
+}
+:is(a, input):focus {
+  outline-color: var(--accent);
+}
+:is(button:not(.toggle-menu), ul li:last-child a) {
+  padding: 0.7rem;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 0.3rem;
+  transition: background-color 0.4s ease;
+}
+:is(button:not(.toggle-menu), ul li:last-child a):hover {
+  background: var(--hover-bg);
+}
+body {
+  font-family: "Nunito Sans", system-ui;
+  background-color: #f6f9fe;
+  width: min(100% - 1.5rem, 1000px);
+  margin-inline: auto;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 1.2rem;
+  position: relative;
+}
+nav ul {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+nav ul li a {
+  text-decoration: none;
+  color: var(--secondary);
+}
+nav ul li:last-child a {
+  display: inline-block;
+}
+main {
+  display: flex;
+  padding-block: 2.2rem;
+}
+.left-content :is(p:first-child, a) {
+  color: var(--accent);
+}
+.left-content p:first-child {
+  background: var(--primary);
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  border-radius: 100vmax;
+}
+.left-content h1 {
+  font-size: 2.7rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #353252;
+}
+.left-content p:nth-of-type(2) {
+  color: var(--secondary);
+}
+.left-content > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.image-container {
+  padding-left: 5rem;
+}
+.image-container img {
+  width: 20rem;
+}
+form {
+  display: flex;
+  gap: 0.5rem;
+}
+form input {
+  font-family: inherit;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #dedede;
+  border-radius: 0.2rem;
+}
+footer {
+  padding-bottom: 4rem;
+}
+footer p {
+  color: var(--secondary);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+footer img {
+  width: 2.6rem;
+}
+footer .icons > *:not(:last-child) {
+  margin-right: 0.5rem;
+}
+/* RESPONSIVENESS */
+.toggle-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+}
+.toggle-menu {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .toggle-menu {
+    display: block;
+  }
+  nav ul {
+    height: 0;
+    overflow: hidden;
+    transition: 0.5s ease;
+    opacity: 0;
+  }
+  nav ul.show-links {
+    height: 200px;
+    opacity: 1;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  form {
+    flex-direction: column;
+  }
+  form input {
+    width: 100%;
+    padding-block: 1rem;
+  }
+}
+@media (max-width: 968px) {
+  .image-container {
+    display: none;
+  }
+  main p {
+    text-align: center;
+  }
+  .left-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-inline: auto;
+    max-width: 45rem;
+  }
+
+  form input {
+    width: 22rem;
+  }
+  form button {
+    padding-block: 1rem !important;
+  }
+
+  .left-content h1,
+  .left-content p {
+    text-align: center;
+  }
+  footer {
+    max-width: 45rem;
+    margin-inline: auto;
+  }
+}
